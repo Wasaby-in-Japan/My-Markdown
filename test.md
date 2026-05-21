@@ -106,8 +106,8 @@ sequenceDiagram
 
     Client->>+Server:リクエスト送信
     Server->>+Database:データ取得
-    Database-->-Server:結果返却
-    Server-->-Client:レスポンス送信
+    Database-->>-Server:結果返却
+    Server-->>-Client:レスポンス送信
     Note over Client,Server:RestAPI通信
 ```
 

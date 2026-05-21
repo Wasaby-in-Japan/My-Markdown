@@ -152,8 +152,8 @@ HTMLの場合はタグで挟む必要があったのに対し、Markdownの場�
 
     Client-&gt;&gt;+Server:リクエスト送信
     Server-&gt;&gt;+Database:データ取得
-    Database--&gt;-Server:結果返却
-    Server--&gt;-Client:レスポンス送信
+    Database--&gt;&gt;-Server:結果返却
+    Server--&gt;&gt;-Client:レスポンス送信
     Note over Client,Server:RestAPI通信
 </div><p>この図ですが、画像として作成したのではなく、ファイル内でこのように記載して作成しています。</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>SequenceDiagram
