@@ -7,7 +7,7 @@
       
       
       
-      
+      <script type="text/javascript" src="file:///c:\Users\fcb65\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.26\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
       
       
       
@@ -27,13 +27,12 @@
       <div class="crossnote markdown-preview  ">
       
 <h1 id="初めに">初めに </h1>
-<p>このファイルはMarkdownの練習用です。<br>
-このファイルを用いることで、Markdownを極めましょう！</p>
+<p>このファイルはMarkdownの練習兼魅力を知っていくための説明ファイルです。<br>
+Markdownで文書を作ろう！！</p>
 <h2 id="目次">目次 </h2>
 <ol>
 <li>Markdownとは</li>
 <li>使用するメリット</li>
-<li>設計書への使用</li>
 <li>図表の書き方</li>
 </ol>
 <h2 id="1markdownとは">1.Markdownとは </h2>
@@ -101,6 +100,86 @@ HTMLの場合はタグで挟む必要があったのに対し、Markdownの場�
 </blockquote>
 <p>これはAIがそういった傾向にあるのではなく、単にMarkdownを使っているというだけです。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
 逆に言うと、こちらがMarkdownで指示を出せば、それだけAIにも明確な指示を送れるということでもあります。</p>
+<ul>
+<li>
+<h2>図表の書き方</h2>
+</li>
+</ul>
+<p>markdownはデフォルトで表を書くことができます。<br>
+例えばこんな感じ。</p>
+<table>
+<thead>
+<tr>
+<th>曜日</th>
+<th>献立</th>
+<th>シェフ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>月曜</td>
+<td>カレー</td>
+<td>太田</td>
+</tr>
+<tr>
+<td>火曜</td>
+<td>ラーメン</td>
+<td>永田</td>
+</tr>
+<tr>
+<td>水曜</td>
+<td>うどん</td>
+<td>富沢</td>
+</tr>
+<tr>
+<td>木曜</td>
+<td>天丼</td>
+<td>エミリー</td>
+</tr>
+<tr>
+<td>金曜</td>
+<td>チキン南蛮</td>
+<td>宮崎</td>
+</tr>
+</tbody>
+</table>
+<p>ただ、Markdownでの表は「少し書きづらい」という意見を耳にすることも多いです。良い感じの拡張機能を見つけましょう。</p>
+<p>さらに、mermaidなどを導入することで、図を追加することもできます。</p>
+<div class="mermaid">sequenceDiagram
+    participant Client
+    Participant Server
+    Participant Database
+
+    Client-&gt;&gt;+Server:リクエスト送信
+    Server-&gt;&gt;+Database:データ取得
+    Database--&gt;-Server:結果返却
+    Server--&gt;-Client:レスポンス送信
+    Note over Client,Server:RestAPI通信
+</div><p>この図ですが、画像として作成したのではなく、ファイル内でこのように記載して作成しています。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>SequenceDiagram
+    participant Client
+    Participant Server
+    Participant Database
+
+    Client-&gt;&gt;+Server:リクエスト送信
+    Server-&gt;&gt;+Database:データ取得
+    Database--&gt;-Server:結果返却
+    Server--&gt;-Client:レスポンス送信
+    Note over Client,Server:RestAPI通信
+</code></pre><ul>
+<li>
+<h4>mermaid導入のメリット</h4>
+</li>
+</ul>
+<p>このようにテキストで図を表現すると「Excelで作るほうが早いんじゃないの？」と思う方もいるかもしれません。<br>
+しかし、Excelの場合は図形の比較に弱いため、設計書更新の際にどこが更新されたか分かりにくいというデメリットがあります。<br>
+対してテキストですべて表現する場合は<strong>Winmergなどの比較ツールですぐに変更箇所を確認することができます。</strong></p>
+<p>さらに、テキストベースであるため<strong>設計内容をAIに理解させやすい</strong>というメリットも生じます。</p>
+<h2 id="終わりに">終わりに </h2>
+<p>今回、私自身のMarkdown記法練習がてら、Markdownを用いるメリットを説明しました。<br>
+Markdown記法に慣れることで、すべてをExcelに押し付けている状態から脱却したいと考えています。<br>
+ですが、<strong>Markdownにももちろんデメリットはあります</strong>し、<strong>Excelにも便利な点は多くあります。</strong></p>
+<p>内部向けにはMarkdown、お客様に見せる場合はExcel...といったように、<strong>それぞれの使いどころを見極める</strong>という点を一緒に意識していきましょう。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -120,7 +199,43 @@ HTMLの場合はタグで挟む必要があったのに対し、Markdownの場�
       
     
     
-    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('div.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('div.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('div.mermaid')
+  })
+}
+</script>
     
     
     
